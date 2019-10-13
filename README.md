@@ -6,8 +6,9 @@ Creates the log analytics and monitoring solutions.
 Reference the module to a specific version (recommended):
 ```hcl
 module "log_analytics" {
-    source                  = "git://github.com/aztfmod/log_analytics.git?ref=v1.1"
-  
+    source  = "aztfmod/caf-log-analytics/azurerm"
+    version = "0.1.0"
+
     name                              = var.name
     solution_plan_map                 = var.solutions
     resource_group_name               = var.rg
