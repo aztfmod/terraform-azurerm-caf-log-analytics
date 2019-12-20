@@ -1,5 +1,13 @@
+module "caf_name_la" {
+  source = "../terraform-azurerm-caf-naming/"
+  
+  name    = var.akv_config.name
+  type    = "la"
+  convention  = var.convention
+}
+
 resource "azurerm_log_analytics_workspace" "log_analytics" {
-  name                = "${var.prefix}${var.name}"
+  name                = module.caf_name_la.la
   location            = var.location
   resource_group_name = var.resource_group_name
   sku                 = "PerGB2018"
