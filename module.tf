@@ -1,7 +1,7 @@
 module "caf_name_la" {
   source = "github.com/aztfmod/terraform-azurerm-caf-naming.git?ref=proto"
   
-  name    = var.akv_config.name
+  name    = var.name
   type    = "la"
   convention  = var.convention
 }
