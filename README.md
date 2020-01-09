@@ -147,5 +147,5 @@ convention = "cafclassic"
 | Name | Type | Description | 
 | -- | -- | -- | 
 | object | object | Returns the full object of the created log analytics. |
-| names | string | Returns the name of the created log analytics. |
-| ids | string | Returns the ID of the created log analytics. | 
+| name | string | Returns the name of the created log analytics. |
+| id | string | Returns the ID of the created log analytics. | 
