@@ -129,9 +129,8 @@ solution_plan_map = {
 }
 
 ```
-
-## Convention
-(Required) Map of tags for the deployment
+## convention
+(Required) Naming convention to be used.
 ```hcl
 variable "convention" {
   description = "(Required) Naming convention used"
@@ -144,6 +143,7 @@ convention = "cafclassic"
 
 
 # Outputs
+
 | Name | Type | Description | 
 | -- | -- | -- | 
 | object | object | Returns the full object of the created log analytics. |
