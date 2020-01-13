@@ -22,3 +22,7 @@ variable "solution_plan_map" {
 variable "tags" {
   description = "(Required) tagging for the log analytics workspace"
 }
+
+variable "convention" {
+  description = "(Required) Naming convention method to use"  
+}

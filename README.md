@@ -7,7 +7,7 @@ Reference the module to a specific version (recommended):
 ```hcl
 module "log_analytics" {
     source  = "aztfmod/caf-log-analytics/azurerm"
-    version = "0.1.0"
+    version = "0.x.y"
 
     name                              = var.name
     solution_plan_map                 = var.solutions
@@ -16,20 +16,6 @@ module "log_analytics" {
     location                          = var.location
     tags                              = var.tags
     
-}
-```
-
-Or get the latest version
-```hcl
-module "log_analytics" {
-    source                  = "git://github.com/aztfmod/log_analytics.git?ref=latest"
-  
-    name                              = var.name
-    solution_plan_map                 = var.solutions
-    resource_group_name               = var.rg
-    prefix                            = var.prefix
-    location                          = var.location
-    tags                              = var.tags
 }
 ```
 
@@ -143,30 +129,23 @@ solution_plan_map = {
 }
 
 ```
-
-
-# Output
-## object
-Returns the full object of the created log analytics.
+## convention
+(Required) Naming convention to be used.
 ```hcl
-output "object" {
-  value      = azurerm_log_analytics_workspace.log_analytics
+variable "convention" {
+  description = "(Required) Naming convention used"
 }
+```
+Example
+```hcl
+convention = "cafclassic"
 ```
 
 
-## id
-Returns the resource id of the created log analytics. 
-```hcl
-output "id" {
-  value      = azurerm_log_analytics_workspace.log_analytics.id
-}
-```
+# Outputs
 
-## name
-Returns the name of the created log analytics.
-```hcl
-output "name" {
-  value      = azurerm_log_analytics_workspace.log_analytics.name
-}
-```
+| Name | Type | Description | 
+| -- | -- | -- | 
+| object | object | Returns the full object of the created log analytics. |
+| name | string | Returns the name of the created log analytics. |
+| id | string | Returns the ID of the created log analytics. | 

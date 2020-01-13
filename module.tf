@@ -1,5 +1,14 @@
+module "caf_name_la" {
+  source  = "aztfmod/caf-naming/azurerm"
+  version = "~> 0.1.0"
+    
+  name    = var.name
+  type    = "la"
+  convention  = var.convention
+}
+
 resource "azurerm_log_analytics_workspace" "log_analytics" {
-  name                = "${var.prefix}${var.name}"
+  name                = module.caf_name_la.la
   location            = var.location
   resource_group_name = var.resource_group_name
   sku                 = "PerGB2018"
