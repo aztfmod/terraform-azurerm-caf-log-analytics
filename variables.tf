@@ -8,6 +8,7 @@ variable "location" {
 
 variable "prefix" {
   description = "(Optional) Prefix to add to resources"
+  default = ""
 }
 
 variable "name" {
