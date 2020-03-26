@@ -1,7 +1,7 @@
-[![Build status](https://dev.azure.com/azure-terraform/Blueprints/_apis/build/status/modules/log_analytics)](https://dev.azure.com/azure-terraform/Blueprints/_build/latest?definitionId=3)
+[![Gitter](https://badges.gitter.im/aztfmod/community.svg)](https://gitter.im/aztfmod/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 # Deploys Azure Monitor Log Analytics 
 Creates the log analytics and monitoring solutions. 
-
 
 Reference the module to a specific version (recommended):
 ```hcl
@@ -19,83 +19,24 @@ module "log_analytics" {
 }
 ```
 
-# Parameters
+## Inputs 
 
-## name
-(Required) Log Analytics workspace name
-```hcl
-variable "name" {
-  description = "Log Analytics workspace name"
-}
-```
-Example
-```hcl
-name = "myloganalytics"
-```
+| Name | Type | Default | Description |
+| -- | -- | -- | -- |
+| resource_group_name | string | None | (Required) Name of the resource group where to create the resource. Changing this forces a new resource to be created. |
+| name | string | None | (Required) Name for the objects created (before naming convention applied.) |
+| location | string | None | (Required) Specifies the Azure location to deploy the resource. Changing this forces a new resource to be created.  |
+| tags | map | None | (Required) Map of tags for the deployment.  |
+| solution_plan_map | map | None | (Required) Map structure containing the list of solutions to be enabled. (see details of the structure in the Parameters section below) |
+| convention | string | None | (Required) Naming convention to be used (check at the naming convention module for possible values).  |
+| prefix | string | None | (Optional) Prefix to be used. |
+| postfix | string | None | (Optional) Postfix to be used. |
+| max_length | string | None | (Optional) maximum length to the name of the resource. |
 
-## resource_group_name
-(Required) (Required) Name of the resource group to deploy the operations log.
-```hcl
-variable "resource_group_name" {
-  description = "(Required) Name of the resource group to deploy the operations log."
-}
 
-```
-Example
-```hcl
-resource_group_name = "operations-rg"
-```
+## Parameters
 
-## location
-(Required) Define the region where the resource groups will be created
-```hcl
-variable "location" {
-  description = "(Required) Define the region where the resource groups will be created"
-  type        = string
-}
-```
-Example
-```
-    location    = "southeastasia"
-```
-
-## prefix
-(Optional) You can use a prefix to add to the list of resource groups you want to create
-```hcl
-variable "prefix" {
-    description = "(Optional) You can use a prefix to add to the list of resource groups you want to create"
-}
-```
-Example
-```hcl
-locals {
-    prefix = "${random_string.prefix.result}-"
-}
-
-resource "random_string" "prefix" {
-    length  = 4
-    upper   = false
-    special = false
-}
-```
-
-## tags
-(Required) Map of tags for the deployment
-```hcl
-variable "tags" {
-  description = "(Required) map of tags for the deployment"
-}
-```
-Example
-```hcl
-tags = {
-    environment     = "DEV"
-    owner           = "Arnaud"
-    deploymentType  = "Terraform"
-  }
-```
-
-## solution_plan_map
+### solution_plan_map
 (Required) Map of tags for the deployment
 ```hcl
 variable "solution_plan_map" {
@@ -129,20 +70,9 @@ solution_plan_map = {
 }
 
 ```
-## convention
-(Required) Naming convention to be used.
-```hcl
-variable "convention" {
-  description = "(Required) Naming convention used"
-}
-```
-Example
-```hcl
-convention = "cafclassic"
-```
 
 
-# Outputs
+## Outputs
 
 | Name | Type | Description | 
 | -- | -- | -- | 

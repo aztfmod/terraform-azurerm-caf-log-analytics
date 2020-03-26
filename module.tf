@@ -1,7 +1,9 @@
 resource "azurecaf_naming_convention" "caf_name_la" {  
   name    = var.name
   prefix  = var.prefix != "" ? var.prefix : null
-  resource_type    = "la"
+  resource_type    = "azurerm_log_analytics_workspace"
+  postfix       = var.postfix != "" ? var.postfix : null
+  max_length    = var.max_length != "" ? var.max_length : null
   convention  = var.convention
 }
 
