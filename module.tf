@@ -1,14 +1,14 @@
-module "caf_name_la" {
-  source  = "aztfmod/caf-naming/azurerm"
-  version = "~> 0.1.0"
-    
+resource "azurecaf_naming_convention" "caf_name_la" {  
   name    = var.name
-  type    = "la"
+  prefix  = var.prefix != "" ? var.prefix : null
+  resource_type    = "azurerm_log_analytics_workspace"
+  postfix       = var.postfix != "" ? var.postfix : null
+  max_length    = var.max_length != "" ? var.max_length : null
   convention  = var.convention
 }
 
 resource "azurerm_log_analytics_workspace" "log_analytics" {
-  name                = module.caf_name_la.la
+  name                = azurecaf_naming_convention.caf_name_la.result
   location            = var.location
   resource_group_name = var.resource_group_name
   sku                 = "PerGB2018"
