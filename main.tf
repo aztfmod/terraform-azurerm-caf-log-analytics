@@ -1,6 +1,6 @@
-provider "azurecaf" {
+# provider "azurecaf" {
   
-}
+# }
 
 locals {
   module_tag          = {
