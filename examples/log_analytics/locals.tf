@@ -1,11 +1,11 @@
 locals {
-    convention = "cafclassic"
+    convention = "cafrandom"
     name = "caftest"
     location = "southeastasia"
     prefix = "test"
     resource_groups = {
         test = { 
-            name     = "test-caf"
+            name     = "test-caf-loganalytics-simple"
             location = "southeastasia" 
         },
     }
