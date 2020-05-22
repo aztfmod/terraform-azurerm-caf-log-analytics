@@ -1,3 +1,12 @@
+## v2.1.0 (May 2020)
+FEATURES: 
+* **new feature:**  add support for retention_in_days parameter ([#8](https://github.com/aztfmod/terraform-azurerm-caf-log-analytics/issues/8))
+* **new feature:**  solution_map input parameter optional ([#9](https://github.com/aztfmod/terraform-azurerm-caf-log-analytics/issues/9))
+
+BUGS: 
+* **bug fix:**  marked output for the object as sensitive to avoid primary_shared_key in logs.
+
+
 ## v2.0.1 (March 2020)
 
 BUGS: 

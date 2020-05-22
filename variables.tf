@@ -11,8 +11,9 @@ variable "name" {
 }
 
 variable "solution_plan_map" {
-  description = "(Required) Map structure containing the list of solutions to be enabled."
+  description = "(Optional) Map structure containing the list of solutions to be enabled."
   type = map(any)
+  default = {}
 }
 
 variable "tags" {
@@ -38,5 +39,11 @@ variable "postfix" {
 variable "max_length" {
   description = "(Optional) You can speficy a maximum length to the name of the resource"
   type        = string
+  default = ""
+}
+
+variable "retention_in_days" {
+  description = " (Optional) The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730."
+  type = string
   default = ""
 }

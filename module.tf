@@ -1,10 +1,10 @@
 resource "azurecaf_naming_convention" "caf_name_la" {  
-  name    = var.name
-  prefix  = var.prefix != "" ? var.prefix : null
-  resource_type    = "azurerm_log_analytics_workspace"
-  postfix       = var.postfix != "" ? var.postfix : null
-  max_length    = var.max_length != "" ? var.max_length : null
-  convention  = var.convention
+  name              = var.name
+  prefix            = var.prefix != "" ? var.prefix : null
+  resource_type     = "azurerm_log_analytics_workspace"
+  postfix           = var.postfix != "" ? var.postfix : null
+  max_length        = var.max_length != "" ? var.max_length : null
+  convention        = var.convention
 }
 
 resource "azurerm_log_analytics_workspace" "log_analytics" {
@@ -13,6 +13,7 @@ resource "azurerm_log_analytics_workspace" "log_analytics" {
   resource_group_name = var.resource_group_name
   sku                 = "PerGB2018"
   tags                = local.tags
+  retention_in_days   = var.retention_in_days != "" ? var.retention_in_days : null
 }
 
 locals {
@@ -26,9 +27,6 @@ resource "azurerm_log_analytics_solution" "la_solution" {
   resource_group_name   = var.resource_group_name
   workspace_resource_id = azurerm_log_analytics_workspace.log_analytics.id
   workspace_name        = azurerm_log_analytics_workspace.log_analytics.name
-
-  // tags = var.tags
-  // Tags not implemented in TF for azurerm_log_analytics_solution
 
   plan {
       product        = var.solution_plan_map[element(local.solution_list, count.index)].product

@@ -27,7 +27,8 @@ module "log_analytics" {
 | name | string | None | (Required) Name for the objects created (before naming convention applied.) |
 | location | string | None | (Required) Specifies the Azure location to deploy the resource. Changing this forces a new resource to be created.  |
 | tags | map | None | (Required) Map of tags for the deployment.  |
-| solution_plan_map | map | None | (Required) Map structure containing the list of solutions to be enabled. (see details of the structure in the Parameters section below) |
+| solution_plan_map | map | None | (Optional) Map structure containing the list of solutions to be enabled. (see details of the structure in the Parameters section below) |
+| retention_in_days | number | None | (Optional) The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730. |
 | convention | string | None | (Required) Naming convention to be used (check at the naming convention module for possible values).  |
 | prefix | string | None | (Optional) Prefix to be used. |
 | postfix | string | None | (Optional) Postfix to be used. |
@@ -37,7 +38,7 @@ module "log_analytics" {
 ## Parameters
 
 ### solution_plan_map
-(Required) Map of tags for the deployment
+(Optional) Map of tags for the deployment
 ```hcl
 variable "solution_plan_map" {
   description = "(Optional) Map structure containing the list of solutions to be enabled."
