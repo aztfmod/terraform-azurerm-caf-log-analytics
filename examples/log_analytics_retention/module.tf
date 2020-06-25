@@ -6,11 +6,11 @@ resource "azurerm_resource_group" "rg_test" {
 
 module "la_test" {
   source = "../../"
-  
-    convention          = local.convention
-    location            = local.location
-    name                = local.name
-    resource_group_name = azurerm_resource_group.rg_test.name
-    tags                = local.tags
-    retention_in_days   = local.retention_in_days
+
+  convention          = local.convention
+  location            = local.location
+  name                = local.name
+  resource_group_name = azurerm_resource_group.rg_test.name
+  tags                = local.tags
+  retention_in_days   = local.retention_in_days
 }
