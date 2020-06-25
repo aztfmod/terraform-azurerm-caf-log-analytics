@@ -12,8 +12,8 @@ variable "name" {
 
 variable "solution_plan_map" {
   description = "(Optional) Map structure containing the list of solutions to be enabled."
-  type = map(any)
-  default = {}
+  type        = map(any)
+  default     = {}
 }
 
 variable "tags" {
@@ -21,29 +21,29 @@ variable "tags" {
 }
 
 variable "convention" {
-  description = "(Required) Naming convention method to use"  
+  description = "(Required) Naming convention method to use"
 }
 
 variable "prefix" {
   description = "(Optional) You can use a prefix to the name of the resource"
   type        = string
-  default = ""
+  default     = ""
 }
 
 variable "postfix" {
   description = "(Optional) You can use a postfix to the name of the resource"
   type        = string
-  default = ""
+  default     = ""
 }
 
 variable "max_length" {
   description = "(Optional) You can speficy a maximum length to the name of the resource"
   type        = string
-  default = ""
+  default     = ""
 }
 
 variable "retention_in_days" {
   description = " (Optional) The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730."
-  type = string
-  default = ""
+  type        = string
+  default     = ""
 }

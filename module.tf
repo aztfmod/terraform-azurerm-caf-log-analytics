@@ -1,10 +1,10 @@
-resource "azurecaf_naming_convention" "caf_name_la" {  
-  name              = var.name
-  prefix            = var.prefix != "" ? var.prefix : null
-  resource_type     = "azurerm_log_analytics_workspace"
-  postfix           = var.postfix != "" ? var.postfix : null
-  max_length        = var.max_length != "" ? var.max_length : null
-  convention        = var.convention
+resource "azurecaf_naming_convention" "caf_name_la" {
+  name          = var.name
+  prefix        = var.prefix != "" ? var.prefix : null
+  resource_type = "azurerm_log_analytics_workspace"
+  postfix       = var.postfix != "" ? var.postfix : null
+  max_length    = var.max_length != "" ? var.max_length : null
+  convention    = var.convention
 }
 
 resource "azurerm_log_analytics_workspace" "log_analytics" {
@@ -21,7 +21,7 @@ locals {
 }
 
 resource "azurerm_log_analytics_solution" "la_solution" {
-  for_each              = var.solution_plan_map
+  for_each = var.solution_plan_map
 
   solution_name         = each.key
   location              = var.location
@@ -30,7 +30,7 @@ resource "azurerm_log_analytics_solution" "la_solution" {
   workspace_name        = azurerm_log_analytics_workspace.log_analytics.name
 
   plan {
-      product        = each.value.product
-      publisher      = each.value.publisher
-    }
+    product   = each.value.product
+    publisher = each.value.publisher
   }
+}
