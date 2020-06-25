@@ -1,3 +1,8 @@
+## v2.2.0 (June 2020)
+IMPROVEMENT: 
+* **improvement:**  Change iteration from count to for_each for better reliability of solutions deployment ([#11](https://github.com/aztfmod/terraform-azurerm-caf-log-analytics/issues/11))
+
+
 ## v2.1.0 (May 2020)
 FEATURES: 
 * **new feature:**  add support for retention_in_days parameter ([#8](https://github.com/aztfmod/terraform-azurerm-caf-log-analytics/issues/8))
