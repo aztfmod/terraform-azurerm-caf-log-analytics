@@ -19,21 +19,8 @@ module "log_analytics" {
 }
 ```
 
-## Inputs 
-
-| Name | Type | Default | Description |
-| -- | -- | -- | -- |
-| resource_group_name | string | None | (Required) Name of the resource group where to create the resource. Changing this forces a new resource to be created. |
-| name | string | None | (Required) Name for the objects created (before naming convention applied.) |
-| location | string | None | (Required) Specifies the Azure location to deploy the resource. Changing this forces a new resource to be created.  |
-| tags | map | None | (Required) Map of tags for the deployment.  |
-| solution_plan_map | map | None | (Optional) Map structure containing the list of solutions to be enabled. (see details of the structure in the Parameters section below) |
-| retention_in_days | number | None | (Optional) The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730. |
-| convention | string | None | (Required) Naming convention to be used (check at the naming convention module for possible values).  |
-| prefix | string | None | (Optional) Prefix to be used. |
-| postfix | string | None | (Optional) Postfix to be used. |
-| max_length | string | None | (Optional) maximum length to the name of the resource. |
-
+<!--- END_TF_DOCS --->
+<!--- BEGIN_TF_DOCS --->
 
 ## Parameters
 
@@ -71,12 +58,3 @@ solution_plan_map = {
 }
 
 ```
-
-
-## Outputs
-
-| Name | Type | Description | 
-| -- | -- | -- | 
-| object | object | Returns the full object of the created log analytics. |
-| name | string | Returns the name of the created log analytics. |
-| id | string | Returns the ID of the created log analytics. | 
