@@ -1,4 +1,5 @@
 [![VScodespaces](https://img.shields.io/endpoint?url=https%3A%2F%2Faka.ms%2Fvso-badge)](https://online.visualstudio.com/environments/new?name=terraform-azurerm-caf-log-analytics&repo=aztfmod/terraform-azurerm-caf-log-analytics)
+[![Gitter](https://badges.gitter.im/aztfmod/community.svg)](https://gitter.im/aztfmod/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 # Deploys Azure Monitor Log Analytics 
 Creates the log analytics and monitoring solutions. 
