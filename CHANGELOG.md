@@ -1,3 +1,8 @@
+## v2.3.0 (July 2020)
+IMPROVEMENT: 
+* **new feature:**  Add support for Terraform 0.13 ([#14](https://github.com/aztfmod/terraform-azurerm-caf-log-analytics/issues/14))
+
+
 ## v2.2.0 (June 2020)
 IMPROVEMENT: 
 * **improvement:**  Change iteration from count to for_each for better reliability of solutions deployment ([#11](https://github.com/aztfmod/terraform-azurerm-caf-log-analytics/issues/11))
