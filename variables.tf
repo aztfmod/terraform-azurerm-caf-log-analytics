@@ -21,7 +21,8 @@ variable "tags" {
 }
 
 variable "convention" {
-  description = "(Required) Naming convention method to use"
+  description = "(Required) Naming convention to be used (check at the naming convention module for possible values)."
+  type    = string
 }
 
 variable "prefix" {

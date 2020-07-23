@@ -1,4 +1,5 @@
 [![VScodespaces](https://img.shields.io/endpoint?url=https%3A%2F%2Faka.ms%2Fvso-badge)](https://online.visualstudio.com/environments/new?name=terraform-azurerm-caf-log-analytics&repo=aztfmod/terraform-azurerm-caf-log-analytics)
+[![Gitter](https://badges.gitter.im/aztfmod/community.svg)](https://gitter.im/aztfmod/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 # Deploys Azure Monitor Log Analytics 
 Creates the log analytics and monitoring solutions. 
@@ -19,21 +20,42 @@ module "log_analytics" {
 }
 ```
 
-## Inputs 
+<!--- BEGIN_TF_DOCS --->
+## Requirements
 
-| Name | Type | Default | Description |
-| -- | -- | -- | -- |
-| resource_group_name | string | None | (Required) Name of the resource group where to create the resource. Changing this forces a new resource to be created. |
-| name | string | None | (Required) Name for the objects created (before naming convention applied.) |
-| location | string | None | (Required) Specifies the Azure location to deploy the resource. Changing this forces a new resource to be created.  |
-| tags | map | None | (Required) Map of tags for the deployment.  |
-| solution_plan_map | map | None | (Optional) Map structure containing the list of solutions to be enabled. (see details of the structure in the Parameters section below) |
-| retention_in_days | number | None | (Optional) The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730. |
-| convention | string | None | (Required) Naming convention to be used (check at the naming convention module for possible values).  |
-| prefix | string | None | (Optional) Prefix to be used. |
-| postfix | string | None | (Optional) Postfix to be used. |
-| max_length | string | None | (Optional) maximum length to the name of the resource. |
+No requirements.
 
+## Providers
+
+| Name | Version |
+|------|---------|
+| azurecaf | n/a |
+| azurerm | n/a |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| convention | (Required) Naming convention to be used (check at the naming convention module for possible values). | `string` | n/a | yes |
+| location | (Required) Location of the resources | `any` | n/a | yes |
+| max\_length | (Optional) You can speficy a maximum length to the name of the resource | `string` | `""` | no |
+| name | (Required) Log Analytics workspace name | `any` | n/a | yes |
+| postfix | (Optional) You can use a postfix to the name of the resource | `string` | `""` | no |
+| prefix | (Optional) You can use a prefix to the name of the resource | `string` | `""` | no |
+| resource\_group\_name | (Required) Resource group name | `any` | n/a | yes |
+| retention\_in\_days | (Optional) The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730. | `string` | `""` | no |
+| solution\_plan\_map | (Optional) Map structure containing the list of solutions to be enabled. | `map(any)` | `{}` | no |
+| tags | (Required) tagging for the log analytics workspace | `any` | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| id | Output the object ID |
+| name | Output the object name |
+| object | Output the full object |
+
+<!--- END_TF_DOCS --->
 
 ## Parameters
 
@@ -73,10 +95,4 @@ solution_plan_map = {
 ```
 
 
-## Outputs
 
-| Name | Type | Description | 
-| -- | -- | -- | 
-| object | object | Returns the full object of the created log analytics. |
-| name | string | Returns the name of the created log analytics. |
-| id | string | Returns the ID of the created log analytics. | 
